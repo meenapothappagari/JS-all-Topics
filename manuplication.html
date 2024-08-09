@@ -1,0 +1,65 @@
+<!--.................DOM  Manuplation TOPICS.(oka kotha element ni ela creat cheyalo or modify cheyalo vitini use cheyadam dwara telustutndi)...............-->
+
+<!--  How to creat HTML elements -->
+<!--  How to set content elements -->
+<!--  How to append a new  elements -->
+<!--  How to insert an element before another element elements -->
+<!--  How to remove an elements -->
+<!--  How to remove child elements -->
+<!--  How to replace an elements -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <div id="first">
+        <p> This is the first paragaraph in div1</p>
+    <!-- How to insert an element before another element elements -->
+        <p> This is the second paragaraph in div1</p>
+    </div>
+
+    <div id="second">  
+        <p id="last"> This is the first paragraph in div2</p>
+        <p> This is the second paragraph in div2</p>
+        <!-- ikkada nenu inkoka para add leda creat cheyalanukunte  script lo ela rayalo kinda chuddam-->
+    </div>
+
+      <!-- var n=document.createElement("h1") element ni creat chestunna  (creat anedi predefined element) o/p=> <h1></h1> -->
+    <script>
+        var n=document.createElement("p")
+        console.log(n) //o/p=> <p></p>
+        //ippudu nenu para  lo contant ni creat cheyalante "inner text" ane oka attribute ni ivvali 
+        n.innerText="this is special paragraph in div2"
+        //console.log(n) //o/p=>  <p> this is third para in div2</p>
+        var parent=document.getElementById("second")
+        var last= document.getElementById("last")
+        parent.insertBefore(n,last)
+
+        //o/p=> This is the first paragaraph in div1
+        //This is the second paragaraph in div1
+        //this is special paragraph in div2 ...........see the deffernce....
+        //This is the first paragraph in div2
+        //This is the second paragraph in div2
+
+        console.log(parent) // o/p=>  <div id="second">  idhi parent -->
+            //<p> This is the first paragraph in div2</p>ivi rend childs vachay
+            //<p> This is the second paragraph in div2</p></div>  "SECOND  DIV MOTHAM vastundi"
+        parent.appendChild(n) 
+        //o/p=> This is the first paragaraph in div1
+        //This is the second paragaraph in div1
+        //This is the first paragraph in div2
+        //This is the second paragraph in div2
+        //this is third para in div2 "  dinni add or creat  cheyadam kosam inta process cheyali"
+
+        //(console.log(parent.innerText)  //text ni istundi
+        //console.log(parent.innerHTML) ) //tag tho saha text motham vastundi
+
+        
+    </script>
+  
+</body>
+</html>
